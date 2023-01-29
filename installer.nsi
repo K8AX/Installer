@@ -129,12 +129,20 @@ Section "ReShade (required)"
   NSCurl::http GET "https://github.com/luluco250/FXShaders/archive/refs/heads/master.zip" "FXShaders-master.zip" /END
   nsisunz::Unzip "FXShaders-master.zip" "$INSTDIR"
   Delete "FXShaders-master.zip"
-
-  NSCurl::http GET "https://github.com/prod80/prod80-ReShade-Repository/archive/refs/heads/master.zip" "prod80-ReShade-Repository-master.zip" /END
-  nsisunz::Unzip "prod80-ReShade-Repository-master.zip" "$INSTDIR"
-  Delete "prod80-ReShade-Repository-master.zip"
   
+  NSCurl::http GET "https://github.com/bituq/ZealShaders/archive/refs/heads/master.zip" "ZealShaders-master.zip" /END
+  nsisunz::Unzip "ZealShaders-master.zip" "$INSTDIR"
+  Delete "ZealShaders-master.zip"
+
   NSCurl::http GET "https://github.com/martymcmodding/qUINT/archive/refs/heads/master.zip" "qUINT-master.zip" /END
+  nsisunz::Unzip "qUINT-master.zip" "$INSTDIR"
+  Delete "qUINT-master.zip"
+
+  NSCurl::http GET "https://github.com/martymcmodding/ReShade-Optical-Flow/archive/refs/heads/main.zip" "ReShade-Optical-Flow-main.zip" /END
+  nsisunz::Unzip "ReShade-Optical-Flow-main.zip" "$INSTDIR"
+  Delete "ReShade-Optical-Flow-main.zip"
+
+  NSCurl::http GET "https://github.com/rj200/Glamarye_Fast_Effects_for_ReShade/archive/refs/heads/main.zip" "qUINT-master.zip" /END
   nsisunz::Unzip "qUINT-master.zip" "$INSTDIR"
   Delete "qUINT-master.zip"
 
@@ -187,6 +195,12 @@ Section "ReShade (required)"
   !insertmacro MoveFolder "$INSTDIR\qUINT-master\Shaders" "$robloxPath\reshade-shaders\Shaders" "*"
   RMDir /r "$INSTDIR\qUINT-master"
 
+  !insertmacro MoveFolder "$INSTDIR\ZealShaders-master\Shaders" "$robloxPath\reshade-shaders\Shaders" "*"
+  RMDir /r "$INSTDIR\ZealShaders-master"
+
+  !insertmacro MoveFolder "$INSTDIR\ReShade-Optical-Flow-main\Shaders" "$robloxPath\reshade-shaders\Shaders" "*"
+  RMDir /r "$INSTDIR\ReShade-Optical-Flow-main"
+
   !insertmacro MoveFolder "$INSTDIR\69c775f844124ec2c71c37541801c053-46a4ea9894e7aed287e3c86a911719422eac97ea" "$robloxPath\reshade-shaders\Shaders" "*"
   RMDir /r "$INSTDIR\69c775f844124ec2c71c37541801c053-46a4ea9894e7aed287e3c86a911719422eac97ea"
 
@@ -204,6 +218,10 @@ Section "ReShade (required)"
 
   !insertmacro MoveFolder "$INSTDIR\NiceGuy-Shaders-main" "$robloxPath\reshade-shaders" "*"
   RMDir /r "$INSTDIR\NiceGuy-Shaders-main"
+
+  # Cool
+  !insertmacro CopyFiles "$robloxPath\reshade-shaders\Shaders\Blending.fxh" "$robloxPath\reshade-shaders\Shaders\Depth3D"
+
 
   NSCurl::http GET "https://github.com/Extravi/extravi.github.io/raw/main/update/dxgi.zip" "dxgi.zip" /END
   nsisunz::Unzip "dxgi.zip" "$robloxPath"
