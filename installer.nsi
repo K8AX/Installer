@@ -122,6 +122,14 @@ Section "ReShade (required)"
   nsisunz::Unzip "reshade-shaders-master.zip" "$INSTDIR"
   Delete "reshade-shaders-master.zip"
 
+  NSCurl::http GET "https://gist.github.com/martymcmodding/69c775f844124ec2c71c37541801c053/archive/46a4ea9894e7aed287e3c86a911719422eac97ea.zip" "69c775f844124ec2c71c37541801c053-46a4ea9894e7aed287e3c86a911719422eac97ea.zip" /END
+  nsisunz::Unzip "69c775f844124ec2c71c37541801c053-46a4ea9894e7aed287e3c86a911719422eac97ea.zip" "$INSTDIR"
+  Delete "69c775f844124ec2c71c37541801c053-46a4ea9894e7aed287e3c86a911719422eac97ea.zip"
+
+  NSCurl::http GET "https://github.com/luluco250/FXShaders/archive/refs/heads/master.zip" "FXShaders-master.zip" /END
+  nsisunz::Unzip "FXShaders-master.zip" "$INSTDIR"
+  Delete "FXShaders-master.zip"
+
   NSCurl::http GET "https://github.com/prod80/prod80-ReShade-Repository/archive/refs/heads/master.zip" "prod80-ReShade-Repository-master.zip" /END
   nsisunz::Unzip "prod80-ReShade-Repository-master.zip" "$INSTDIR"
   Delete "prod80-ReShade-Repository-master.zip"
@@ -172,10 +180,17 @@ Section "ReShade (required)"
   !insertmacro MoveFolder "$INSTDIR\prod80-ReShade-Repository-master\Textures" "$robloxPath\reshade-shaders\Textures" "*"
   RMDir /r "$INSTDIR\prod80-ReShade-Repository-master"
 
+  !insertmacro MoveFolder "$INSTDIR\FXShaders-master\Shaders" "$robloxPath\reshade-shaders\Shaders" "*"
+  !insertmacro MoveFolder "$INSTDIR\FXShaders-master\Textures" "$robloxPath\reshade-shaders\Textures" "*"
+  RMDir /r "$INSTDIR\FXShaders-master"
+
   !insertmacro MoveFolder "$INSTDIR\qUINT-master\Shaders" "$robloxPath\reshade-shaders\Shaders" "*"
   RMDir /r "$INSTDIR\qUINT-master"
 
-  !insertmacro MoveFolder "$INSTDIR\Warp-FX-master\Shaders" "$robloxPath\Warp-FX-master\Shaders" "*"
+  !insertmacro MoveFolder "$INSTDIR\69c775f844124ec2c71c37541801c053-46a4ea9894e7aed287e3c86a911719422eac97ea" "$robloxPath\reshade-shaders\Shaders" "*"
+  RMDir /r "$INSTDIR\69c775f844124ec2c71c37541801c053-46a4ea9894e7aed287e3c86a911719422eac97ea"
+
+  !insertmacro MoveFolder "$INSTDIR\Warp-FX-master\Shaders" "$robloxPath\reshade-shaders\Shaders" "*"
   RMDir /r "$INSTDIR\Warp-FX-master"
 
   !insertmacro MoveFolder "$INSTDIR\dh-reshade-shaders-master\Shaders" "$robloxPath\reshade-shaders\Shaders" "*"
