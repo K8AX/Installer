@@ -15,7 +15,7 @@ Var /GLOBAL switch_overwrite
 # File Info
 
 !define PRODUCT_NAME "RobloxTX"
-!define PRODUCT_DESCRIPTION "ReShade presets made by K8AX."
+!define PRODUCT_DESCRIPTION "ReShade presets made by K8AX, made with care by Extravi."
 !define COPYRIGHT "Copyright © 2022 sitiom, Extravi"
 !define VERSION "1.0.0"
 
@@ -56,7 +56,7 @@ InstType "Full";1
 $\r$\n\
 Before continuing, ensure that Roblox is closed. If Roblox is open, the installer will terminate the process before it begins.$\r$\n\
 $\r$\n\
-There may be issues with the setup. If that's the case, it's recommended that you ask your questions in Extravi's Discord server.$\r$\n\
+There may be issues with the setup. If that's the case, it's recommended that you ask your questions in Extravi's Discord server, or contact ESportMan#4875 on Discord.$\r$\n\
 $\r$\n\
 Click Next to continue."
 !define MUI_LICENSEPAGE_RADIOBUTTONS
@@ -69,7 +69,7 @@ Click Finish to exit Setup."
 !define MUI_FINISHPAGE_SHOWREADME_NOTCHECKED
 !define MUI_FINISHPAGE_SHOWREADME_TEXT "Visit reshade.me"
 !define MUI_FINISHPAGE_RUN
-!define MUI_FINISHPAGE_RUN_TEXT "Subscribe to Extravi on Youtube, again."
+!define MUI_FINISHPAGE_RUN_TEXT "Subscribe to Extravi on Youtube, again!"
 !define MUI_FINISHPAGE_RUN_CHECKED
 !define MUI_FINISHPAGE_RUN_FUNCTION "OpenLink"
 
@@ -146,9 +146,9 @@ Section "ReShade (required)"
   nsisunz::Unzip "qUINT-master.zip" "$INSTDIR"
   Delete "qUINT-master.zip"
 
-  NSCurl::http GET "https://github.com/Radegast-FFXIV/Warp-FX/archive/refs/heads/master.zip" "Warp-FX-master.zip" /END
-  nsisunz::Unzip "Warp-FX-master.zip" "$INSTDIR"
-  Delete "Warp-FX-master.zip"
+  NSCurl::http GET "https://github.com/Radegast-FFXIV/Warp-FX/archive/refs/tags/v1.3.2.zip" "Warp-FX-1.3.2.zip" /END
+  nsisunz::Unzip "Warp-FX-1.3.2.zip" "$INSTDIR"
+  Delete "Warp-FX-1.3.2.zip"
 
   NSCurl::http GET "https://github.com/AlucardDH/dh-reshade-shaders/archive/refs/heads/master.zip" "dh-reshade-shaders-master.zip" /END
   nsisunz::Unzip "dh-reshade-shaders-master.zip" "$INSTDIR"
@@ -204,9 +204,9 @@ Section "ReShade (required)"
   !insertmacro MoveFolder "$INSTDIR\69c775f844124ec2c71c37541801c053-46a4ea9894e7aed287e3c86a911719422eac97ea" "$robloxPath\reshade-shaders\Shaders" "*"
   RMDir /r "$INSTDIR\69c775f844124ec2c71c37541801c053-46a4ea9894e7aed287e3c86a911719422eac97ea"
 
-  !insertmacro MoveFolder "$INSTDIR\Warp-FX-master\Shaders" "$robloxPath\reshade-shaders\Shaders" "*"
-  RMDir /r "$INSTDIR\Warp-FX-master"
-
+  !insertmacro MoveFolder "$INSTDIR\Warp-FX-1.3.2\Shaders" "$robloxPath\reshade-shaders\Shaders" "*"
+  RMDir /r "$INSTDIR\Warp-FX-1.3.2"
+ 
   !insertmacro MoveFolder "$INSTDIR\dh-reshade-shaders-master\Shaders" "$robloxPath\reshade-shaders\Shaders" "*"
   !insertmacro MoveFolder "$INSTDIR\dh-reshade-shaders-master\Textures" "$robloxPath\reshade-shaders\Textures" "*"
   RMDir /r "$INSTDIR\dh-reshade-shaders-master"
@@ -238,7 +238,7 @@ SectionGroup /e "Presets"
   Section "K8AX's ReShade-Presets"
     SectionIn 1
     NSCurl::http GET "https://github.com/K8AX/RobloxTX/raw/main/reshade-presets.zip" "reshade-presets.zip" /END
-    nsisunz::Unzip "reshade-presets.zip" "$robloxPath"
+    nsisunz::Unzip "reshade-presets.zip" "$robloxPath\reshade-presets"
     Delete "reshade-presets.zip"
   SectionEnd
 SectionGroupEnd
