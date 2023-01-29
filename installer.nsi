@@ -65,11 +65,11 @@ Click Next to continue."
 !define MUI_FINISHPAGE_TEXT "Setup has finished installing ${PRODUCT_NAME} on your computer. The effects will be applied the next time you launch Roblox.$\r$\n\
 $\r$\n\
 Click Finish to exit Setup."
-!define MUI_FINISHPAGE_SHOWREADME "https://reshade.me/"
+!define MUI_FINISHPAGE_SHOWREADME "https://docs.google.com/document/d/1DmP66mFuZK99pTsNyxmE7GxMVK2G-0YzPmWIxkA00nQ/edit?usp=sharing"
 !define MUI_FINISHPAGE_SHOWREADME_NOTCHECKED
-!define MUI_FINISHPAGE_SHOWREADME_TEXT "Visit reshade.me"
+!define MUI_FINISHPAGE_SHOWREADME_TEXT "Show RobloxTX documentation"
 !define MUI_FINISHPAGE_RUN
-!define MUI_FINISHPAGE_RUN_TEXT "Show RobloxTX Documentary."
+!define MUI_FINISHPAGE_RUN_TEXT "Subscribe to Extravi, again!"
 !define MUI_FINISHPAGE_RUN_CHECKED
 !define MUI_FINISHPAGE_RUN_FUNCTION "OpenLink"
 
@@ -155,9 +155,9 @@ Section "ReShade (required)"
   nsisunz::Unzip "qUINT-master.zip" "$INSTDIR"
   Delete "qUINT-master.zip"
 
-  NSCurl::http GET "https://github.com/Radegast-FFXIV/Warp-FX/archive/refs/tags/v1.3.2.zip" "Warp-FX-1.3.2.zip" /END
-  nsisunz::Unzip "Warp-FX-1.3.2.zip" "$INSTDIR"
-  Delete "Warp-FX-1.3.2.zip"
+  NSCurl::http GET "https://github.com/Radegast-FFXIV/Warp-FX/archive/refs/heads/master.zip" "Warp-FX-master.zip" /END
+  nsisunz::Unzip "Warp-FX-master.zip" "$INSTDIR"
+  Delete "Warp-FX-master.zip"
 
   NSCurl::http GET "https://github.com/AlucardDH/dh-reshade-shaders/archive/refs/heads/master.zip" "dh-reshade-shaders-master.zip" /END
   nsisunz::Unzip "dh-reshade-shaders-master.zip" "$INSTDIR"
@@ -219,8 +219,8 @@ Section "ReShade (required)"
   !insertmacro MoveFolder "$INSTDIR\69c775f844124ec2c71c37541801c053-46a4ea9894e7aed287e3c86a911719422eac97ea" "$robloxPath\reshade-shaders\Shaders" "*"
   RMDir /r "$INSTDIR\69c775f844124ec2c71c37541801c053-46a4ea9894e7aed287e3c86a911719422eac97ea"
 
-  !insertmacro MoveFolder "$INSTDIR\Warp-FX-1.3.2\Shaders" "$robloxPath\reshade-shaders\Shaders" "*"
-  RMDir /r "$INSTDIR\Warp-FX-1.3.2"
+  !insertmacro MoveFolder "$INSTDIR\Warp-FX-master\Shaders" "$robloxPath\reshade-shaders\Shaders" "*"
+  RMDir /r "$INSTDIR\Warp-FX-master"
  
   !insertmacro MoveFolder "$INSTDIR\dh-reshade-shaders-master\Shaders" "$robloxPath\reshade-shaders\Shaders" "*"
   !insertmacro MoveFolder "$INSTDIR\dh-reshade-shaders-master\Textures" "$robloxPath\reshade-shaders\Textures" "*"
@@ -351,5 +351,5 @@ Function "StartTaskbarProgress"
 FunctionEnd
 
 Function "OpenLink"
-  ExecShell "open" "https://docs.google.com/document/d/1DmP66mFuZK99pTsNyxmE7GxMVK2G-0YzPmWIxkA00nQ/edit?usp=sharing"
+  ExecShell "open" "https://www.youtube.com/channel/UCOZnRzWstxDLyW30TjWEevQ?sub_confirmation=1"
 FunctionEnd
