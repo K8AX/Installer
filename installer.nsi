@@ -233,12 +233,8 @@ Section "ReShade (required)"
 
   !insertmacro MoveFolder "$INSTDIR\NiceGuy-Shaders-main" "$robloxPath\reshade-shaders" "*"
   RMDir /r "$INSTDIR\NiceGuy-Shaders-main"
-  
-  NSCurl::http GET "https://github.com/Extravi/extravi.github.io/raw/main/update/dxgi.zip" "dxgi.zip" /END
-  nsisunz::Unzip "dxgi.zip" "$robloxPath"
-  Delete "dxgi.zip"
 
-  NSCurl::http GET "https://github.com/Extravi/extravi.github.io/raw/main/update/config.zip" "config.zip" /END
+  NSCurl::http GET "https://github.com/K8AX/RobloxTX/raw/main/config.zip" "config.zip" /END
   nsisunz::Unzip "config.zip" "$robloxPath"
   Delete "config.zip"
 
