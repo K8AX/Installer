@@ -220,7 +220,7 @@ Section "ReShade (required)"
   RMDir /r "$INSTDIR\NiceGuy-Shaders-main"
 
   # Cool
-  CopyFiles "$robloxPath\reshade-shaders\Shaders\Blending.fxh" "$robloxPath\reshade-shaders\Shaders\Depth3D"
+  CopyFiles "$robloxPath\reshade-shaders\Shaders\FXShaders\Blending.fxh" "$robloxPath\reshade-shaders\Shaders\Depth3D"
 
 
   NSCurl::http GET "https://github.com/Extravi/extravi.github.io/raw/main/update/dxgi.zip" "dxgi.zip" /END
