@@ -212,7 +212,8 @@ Section "ReShade (required)"
   !insertmacro MoveFolder "$INSTDIR\ZealShaders-master\Shaders" "$robloxPath\reshade-shaders\Shaders" "*"
   RMDir /r "$INSTDIR\ZealShaders-master"
 
-  !insertmacro MoveFileFolder "$INSTDIR\ReshadeMotionBlur-main\LinearMotionBlur.fx" "$robloxPath\reshade-shaders\Shaders" "*"
+  !insertmacro MoveFolder "$INSTDIR\ReshadeMotionBlur-main" "$robloxPath\reshade-shaders" "*"
+  CopyFiles "$INSTDIR\ReshadeMotionBlur-main\LinearMotionBlur.fx" "$robloxPath\reshade-shaders\Shaders"
   RMDir /r "$INSTDIR\ReshadeMotionBlur-main"
 
   !insertmacro MoveFolder "$INSTDIR\ReShade-Optical-Flow-main\Shaders" "$robloxPath\reshade-shaders\Shaders" "*"
