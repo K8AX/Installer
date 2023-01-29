@@ -66,8 +66,8 @@ Click Next to continue."
 $\r$\n\
 Click Finish to exit Setup."
 !define MUI_FINISHPAGE_SHOWREADME "https://docs.google.com/document/d/1DmP66mFuZK99pTsNyxmE7GxMVK2G-0YzPmWIxkA00nQ/edit?usp=sharing"
-!define MUI_FINISHPAGE_SHOWREADME_NOTCHECKED
-!define MUI_FINISHPAGE_SHOWREADME_TEXT "Show RobloxTX documentation"
+!define MUI_FINISHPAGE_SHOWREADME_CHECKED
+!define MUI_FINISHPAGE_SHOWREADME_TEXT "Show RobloxTX documentation. (HIGHLY RECOMMENDED FOR BEGINNERS!)"
 !define MUI_FINISHPAGE_RUN
 !define MUI_FINISHPAGE_RUN_TEXT "Subscribe to Extravi, again!"
 !define MUI_FINISHPAGE_RUN_CHECKED
