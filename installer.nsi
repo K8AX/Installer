@@ -130,6 +130,10 @@ Section "ReShade (required)"
   nsisunz::Unzip "qUINT-master.zip" "$INSTDIR"
   Delete "qUINT-master.zip"
 
+  NSCurl::http GET "https://github.com/Radegast-FFXIV/Warp-FX/archive/refs/heads/master.zip" "Warp-FX-master.zip" /END
+  nsisunz::Unzip "Warp-FX-master.zip" "$INSTDIR"
+  Delete "Warp-FX-master.zip"
+
   NSCurl::http GET "https://github.com/AlucardDH/dh-reshade-shaders/archive/refs/heads/master.zip" "dh-reshade-shaders-master.zip" /END
   nsisunz::Unzip "dh-reshade-shaders-master.zip" "$INSTDIR"
   Delete "dh-reshade-shaders-master.zip"
@@ -170,6 +174,9 @@ Section "ReShade (required)"
 
   !insertmacro MoveFolder "$INSTDIR\qUINT-master\Shaders" "$robloxPath\reshade-shaders\Shaders" "*"
   RMDir /r "$INSTDIR\qUINT-master"
+
+  !insertmacro MoveFolder "$INSTDIR\Warp-FX-master\Shaders" "$robloxPath\Warp-FX-master\Shaders" "*"
+  RMDir /r "$INSTDIR\Warp-FX-master"
 
   !insertmacro MoveFolder "$INSTDIR\dh-reshade-shaders-master\Shaders" "$robloxPath\reshade-shaders\Shaders" "*"
   !insertmacro MoveFolder "$INSTDIR\dh-reshade-shaders-master\Textures" "$robloxPath\reshade-shaders\Textures" "*"
