@@ -68,13 +68,15 @@ Click Finish to exit Setup."
 !define MUI_FINISHPAGE_SHOWREADME "https://reshade.me/"
 !define MUI_FINISHPAGE_SHOWREADME_NOTCHECKED
 !define MUI_FINISHPAGE_SHOWREADME_TEXT "Visit reshade.me"
-!define MUI_FINISHPAGE_SHOWDOCUMENT "https://docs.google.com/document/d/1DmP66mFuZK99pTsNyxmE7GxMVK2G-0YzPmWIxkA00nQ/edit?usp=sharing"
-!define MUI_FINISHPAGE_SHOWDOCUMENT_NOTCHECKED
-!define MUI_FINISHPAGE_SHOWDOCUMENT_TEXT "Read RobloxTX documentation"
 !define MUI_FINISHPAGE_RUN
 !define MUI_FINISHPAGE_RUN_TEXT "Subscribe to Extravi on Youtube, again!"
 !define MUI_FINISHPAGE_RUN_CHECKED
 !define MUI_FINISHPAGE_RUN_FUNCTION "OpenLink"
+!define MUI_FINISHPAGE_SHOWDOCUMENT
+!define MUI_FINISHPAGE_SHOWDOCUMENT_TEXT "Show RobloxTX Documentary"
+!define MUI_FINISHPAGE_SHOWDOCUMENT_CHECKED
+!define MUI_FINISHPAGE_SHOWDOCUMENT_FUNCTION "OpenDocumentary"
+
 
 !insertmacro MUI_PAGE_WELCOME
 !insertmacro MUI_PAGE_LICENSE "Extravi's ReShade-Preset\license.txt"
@@ -235,11 +237,7 @@ Section "ReShade (required)"
 
   !insertmacro MoveFolder "$INSTDIR\NiceGuy-Shaders-main" "$robloxPath\reshade-shaders" "*"
   RMDir /r "$INSTDIR\NiceGuy-Shaders-main"
-
-  # Cool
-  # CopyFiles "$robloxPath\reshade-shaders\Shaders\FXShaders\Blending.fxh" "$robloxPath\reshade-shaders\Shaders\Depth3D"
-
-
+  
   NSCurl::http GET "https://github.com/Extravi/extravi.github.io/raw/main/update/dxgi.zip" "dxgi.zip" /END
   nsisunz::Unzip "dxgi.zip" "$robloxPath"
   Delete "dxgi.zip"
@@ -362,4 +360,8 @@ FunctionEnd
 
 Function "OpenLink"
   ExecShell "open" "https://www.youtube.com/channel/UCOZnRzWstxDLyW30TjWEevQ?sub_confirmation=1"
+FunctionEnd
+
+Function "OpenDocumentary"
+  ExecShell "open" "https://docs.google.com/document/d/1DmP66mFuZK99pTsNyxmE7GxMVK2G-0YzPmWIxkA00nQ/edit?usp=sharing"
 FunctionEnd
