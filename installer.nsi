@@ -69,13 +69,9 @@ Click Finish to exit Setup."
 !define MUI_FINISHPAGE_SHOWREADME_NOTCHECKED
 !define MUI_FINISHPAGE_SHOWREADME_TEXT "Visit reshade.me"
 !define MUI_FINISHPAGE_RUN
-!define MUI_FINISHPAGE_RUN_TEXT "Subscribe to Extravi on Youtube, again!"
+!define MUI_FINISHPAGE_RUN_TEXT "Show RobloxTX Documentary."
 !define MUI_FINISHPAGE_RUN_CHECKED
 !define MUI_FINISHPAGE_RUN_FUNCTION "OpenLink"
-!define MUI_FINISHPAGE_SHOWDOCUMENT
-!define MUI_FINISHPAGE_SHOWDOCUMENT_TEXT "Show RobloxTX Documentary"
-!define MUI_FINISHPAGE_SHOWDOCUMENT_CHECKED
-!define MUI_FINISHPAGE_SHOWDOCUMENT_FUNCTION "OpenDocumentary"
 
 
 !insertmacro MUI_PAGE_WELCOME
@@ -359,9 +355,5 @@ Function "StartTaskbarProgress"
 FunctionEnd
 
 Function "OpenLink"
-  ExecShell "open" "https://www.youtube.com/channel/UCOZnRzWstxDLyW30TjWEevQ?sub_confirmation=1"
-FunctionEnd
-
-Function "OpenDocumentary"
   ExecShell "open" "https://docs.google.com/document/d/1DmP66mFuZK99pTsNyxmE7GxMVK2G-0YzPmWIxkA00nQ/edit?usp=sharing"
 FunctionEnd
