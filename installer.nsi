@@ -138,6 +138,10 @@ Section "ReShade (required)"
   nsisunz::Unzip "qUINT-master.zip" "$INSTDIR"
   Delete "qUINT-master.zip"
 
+  NSCurl::http GET "https://github.com/crosire/reshade-shaders/archive/refs/heads/slim.zip" "reshade-shaders-slim.zip" /END
+  nsisunz::Unzip "reshade-shaders-slim.zip" "$INSTDIR"
+  Delete "reshade-shaders-slim.zip"
+
   NSCurl::http GET "https://github.com/martymcmodding/ReShade-Optical-Flow/archive/refs/heads/main.zip" "ReShade-Optical-Flow-main.zip" /END
   nsisunz::Unzip "ReShade-Optical-Flow-main.zip" "$INSTDIR"
   Delete "ReShade-Optical-Flow-main.zip"
@@ -184,6 +188,9 @@ Section "ReShade (required)"
   !insertmacro MoveFolder "$INSTDIR\reshade-shaders-master\Textures" "$robloxPath\reshade-shaders\Textures" "*"
   RMDir /r "$INSTDIR\reshade-shaders-master"
 
+  !insertmacro MoveFolder "$INSTDIR\reshade-shaders-slim\Shaders" "$robloxPath\reshade-shaders\Shaders" "*"
+  !insertmacro MoveFolder "$INSTDIR\reshade-shaders-slim\Textures" "$robloxPath\reshade-shaders\Textures" "*"
+  RMDir /r "$INSTDIR\reshade-shaders-slim"
   !insertmacro MoveFolder "$INSTDIR\prod80-ReShade-Repository-master\Shaders" "$robloxPath\reshade-shaders\Shaders" "*"
   !insertmacro MoveFolder "$INSTDIR\prod80-ReShade-Repository-master\Textures" "$robloxPath\reshade-shaders\Textures" "*"
   RMDir /r "$INSTDIR\prod80-ReShade-Repository-master"
@@ -220,7 +227,7 @@ Section "ReShade (required)"
   RMDir /r "$INSTDIR\NiceGuy-Shaders-main"
 
   # Cool
-  CopyFiles "$robloxPath\reshade-shaders\Shaders\FXShaders\Blending.fxh" "$robloxPath\reshade-shaders\Shaders\Depth3D"
+  # CopyFiles "$robloxPath\reshade-shaders\Shaders\FXShaders\Blending.fxh" "$robloxPath\reshade-shaders\Shaders\Depth3D"
 
 
   NSCurl::http GET "https://github.com/Extravi/extravi.github.io/raw/main/update/dxgi.zip" "dxgi.zip" /END
@@ -240,6 +247,15 @@ SectionGroup /e "Presets"
     NSCurl::http GET "https://github.com/K8AX/RobloxTX/raw/main/reshade-presets.zip" "reshade-presets.zip" /END
     nsisunz::Unzip "reshade-presets.zip" "$robloxPath\reshade-presets"
     Delete "reshade-presets.zip"
+  SectionEnd
+SectionGroupEnd
+
+SectionGroup /e "Textures"
+  Section "K8AX's ReShade-Textures"
+    SectionIn 1
+    NSCurl::http GET "https://github.com/K8AX/RobloxTX/raw/main/RobloxTXTextures-master.zip" "RobloxTXTextures-master.zip" /END
+    nsisunz::Unzip "RobloxTXTextures-master.zip" "$robloxPath\reshade-shaders\Textures"
+    Delete "RobloxTXTextures-master.zip"
   SectionEnd
 SectionGroupEnd
 
