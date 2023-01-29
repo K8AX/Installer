@@ -14,10 +14,10 @@ Var /GLOBAL switch_overwrite
 ####################################################################
 # File Info
 
-!define PRODUCT_NAME "Extravi's ReShade-Preset"
-!define PRODUCT_DESCRIPTION "ReShade presets made by Extravi."
+!define PRODUCT_NAME "RobloxTX"
+!define PRODUCT_DESCRIPTION "ReShade presets made by K8AX."
 !define COPYRIGHT "Copyright © 2022 sitiom, Extravi"
-!define VERSION "4.2.1"
+!define VERSION "1.0.0"
 
 VIProductVersion "${VERSION}.0"
 VIAddVersionKey "ProductName" "${PRODUCT_NAME}"
@@ -69,7 +69,7 @@ Click Finish to exit Setup."
 !define MUI_FINISHPAGE_SHOWREADME_NOTCHECKED
 !define MUI_FINISHPAGE_SHOWREADME_TEXT "Visit reshade.me"
 !define MUI_FINISHPAGE_RUN
-!define MUI_FINISHPAGE_RUN_TEXT "Subscribe to Extravi on Youtube"
+!define MUI_FINISHPAGE_RUN_TEXT "Subscribe to Extravi on Youtube, again."
 !define MUI_FINISHPAGE_RUN_CHECKED
 !define MUI_FINISHPAGE_RUN_FUNCTION "OpenLink"
 
@@ -195,9 +195,9 @@ Section "ReShade (required)"
 SectionEnd
 
 SectionGroup /e "Presets"
-  Section "Extravi's ReShade-Presets"
+  Section "K8AX's ReShade-Presets"
     SectionIn 1
-    NSCurl::http GET "https://github.com/Extravi/extravi.github.io/raw/main/update/reshade-presets.zip" "reshade-presets.zip" /END
+    NSCurl::http GET "https://github.com/K8AX/RobloxTX/raw/main/reshade-presets.zip" "reshade-presets.zip" /END
     nsisunz::Unzip "reshade-presets.zip" "$robloxPath"
     Delete "reshade-presets.zip"
   SectionEnd
