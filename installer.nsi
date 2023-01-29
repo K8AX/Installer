@@ -68,6 +68,9 @@ Click Finish to exit Setup."
 !define MUI_FINISHPAGE_SHOWREADME "https://reshade.me/"
 !define MUI_FINISHPAGE_SHOWREADME_NOTCHECKED
 !define MUI_FINISHPAGE_SHOWREADME_TEXT "Visit reshade.me"
+!define MUI_FINISHPAGE_SHOWDOCUMENT "https://docs.google.com/document/d/1DmP66mFuZK99pTsNyxmE7GxMVK2G-0YzPmWIxkA00nQ/edit?usp=sharing"
+!define MUI_FINISHPAGE_SHOWREADME_NOTCHECKED
+!define MUI_FINISHPAGE_SHOWDOCUMENT_TEXT "Read RobloxTX documentation"
 !define MUI_FINISHPAGE_RUN
 !define MUI_FINISHPAGE_RUN_TEXT "Subscribe to Extravi on Youtube, again!"
 !define MUI_FINISHPAGE_RUN_CHECKED
@@ -125,6 +128,10 @@ Section "ReShade (required)"
   NSCurl::http GET "https://gist.github.com/martymcmodding/69c775f844124ec2c71c37541801c053/archive/46a4ea9894e7aed287e3c86a911719422eac97ea.zip" "69c775f844124ec2c71c37541801c053-46a4ea9894e7aed287e3c86a911719422eac97ea.zip" /END
   nsisunz::Unzip "69c775f844124ec2c71c37541801c053-46a4ea9894e7aed287e3c86a911719422eac97ea.zip" "$INSTDIR"
   Delete "69c775f844124ec2c71c37541801c053-46a4ea9894e7aed287e3c86a911719422eac97ea.zip"
+
+  NSCurl::http GET "https://github.com/JakobPCoder/ReshadeMotionBlur/archive/refs/heads/main.zip" "ReshadeMotionBlur-main.zip" /END
+  nsisunz::Unzip "ReshadeMotionBlur-main.zip" "$INSTDIR"
+  Delete "ReshadeMotionBlur-main.zip"
 
   NSCurl::http GET "https://github.com/luluco250/FXShaders/archive/refs/heads/master.zip" "FXShaders-master.zip" /END
   nsisunz::Unzip "FXShaders-master.zip" "$INSTDIR"
@@ -204,6 +211,9 @@ Section "ReShade (required)"
 
   !insertmacro MoveFolder "$INSTDIR\ZealShaders-master\Shaders" "$robloxPath\reshade-shaders\Shaders" "*"
   RMDir /r "$INSTDIR\ZealShaders-master"
+
+  !insertmacro MoveFile "$INSTDIR\ReshadeMotionBlur-main\LinearMotionBlur.fx" "$robloxPath\reshade-shaders\Shaders" "*"
+  RMDir /r "$INSTDIR\ReshadeMotionBlur-main"
 
   !insertmacro MoveFolder "$INSTDIR\ReShade-Optical-Flow-main\Shaders" "$robloxPath\reshade-shaders\Shaders" "*"
   RMDir /r "$INSTDIR\ReShade-Optical-Flow-main"
