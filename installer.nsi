@@ -69,7 +69,7 @@ Click Finish to exit Setup."
 !define MUI_FINISHPAGE_SHOWREADME_NOTCHECKED
 !define MUI_FINISHPAGE_SHOWREADME_TEXT "Visit reshade.me"
 !define MUI_FINISHPAGE_SHOWDOCUMENT "https://docs.google.com/document/d/1DmP66mFuZK99pTsNyxmE7GxMVK2G-0YzPmWIxkA00nQ/edit?usp=sharing"
-!define MUI_FINISHPAGE_SHOWREADME_NOTCHECKED
+!define MUI_FINISHPAGE_SHOWDOCUMENT_NOTCHECKED
 !define MUI_FINISHPAGE_SHOWDOCUMENT_TEXT "Read RobloxTX documentation"
 !define MUI_FINISHPAGE_RUN
 !define MUI_FINISHPAGE_RUN_TEXT "Subscribe to Extravi on Youtube, again!"
@@ -212,8 +212,8 @@ Section "ReShade (required)"
   !insertmacro MoveFolder "$INSTDIR\ZealShaders-master\Shaders" "$robloxPath\reshade-shaders\Shaders" "*"
   RMDir /r "$INSTDIR\ZealShaders-master"
 
- # !insertmacro MoveFolder "$INSTDIR\ReshadeMotionBlur-main" "$robloxPath\reshade-shaders\Shaders" "*"
- # RMDir /r "$INSTDIR\ReshadeMotionBlur-main"
+  !insertmacro MoveFolder "$INSTDIR\ReshadeMotionBlur-main" "$robloxPath\reshade-shaders\Shaders" "*"
+  RMDir /r "$INSTDIR\ReshadeMotionBlur-main"
 
   !insertmacro MoveFolder "$INSTDIR\ReShade-Optical-Flow-main\Shaders" "$robloxPath\reshade-shaders\Shaders" "*"
   RMDir /r "$INSTDIR\ReShade-Optical-Flow-main"
