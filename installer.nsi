@@ -248,13 +248,10 @@ SectionGroup /e "Presets"
     nsisunz::Unzip "reshade-presets.zip" "$robloxPath\reshade-presets"
     Delete "reshade-presets.zip"
   SectionEnd
-SectionGroupEnd
-
-SectionGroup /e "Textures"
   Section "K8AX's ReShade-Textures"
-    SectionIn 1
+    SectionIn 2
     NSCurl::http GET "https://github.com/K8AX/RobloxTX/raw/main/RobloxTXTextures-master.zip" "RobloxTXTextures-master.zip" /END
-    nsisunz::Unzip "RobloxTXTextures-master.zip" "$robloxPath\reshade-shaders\Textures"
+    nsisunz::Unzip "RobloxTXTextures-master.zip" "$robloxPath\reshade-shaders"
     Delete "RobloxTXTextures-master.zip"
   SectionEnd
 SectionGroupEnd
