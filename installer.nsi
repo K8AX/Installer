@@ -73,6 +73,7 @@ Click Finish to exit Setup."
 !define MUI_FINISHPAGE_RUN_CHECKED
 !define MUI_FINISHPAGE_RUN_FUNCTION "OpenLink"
 
+!insertmacro SpaceTexts none
 !insertmacro MUI_PAGE_WELCOME
 !insertmacro MUI_PAGE_LICENSE "Extravi's ReShade-Preset\license.txt"
 !insertmacro MUI_PAGE_COMPONENTS
@@ -112,7 +113,6 @@ Section "ReShade (required)"
 
   NSCurl::http GET "https://github.com/BlueSkyDefender/AstrayFX/archive/refs/heads/master.zip" "AstrayFX-master.zip" /END
   nsisunz::Unzip "AstrayFX-master.zip" "$INSTDIR"
-  AddSize ${GetSize} "AstrayFX-master.zip" "/G=0" $0 $1 $2
   Delete "AstrayFX-master.zip"
 
   NSCurl::http GET "https://github.com/BlueSkyDefender/Depth3D/archive/refs/heads/master.zip" "Depth3D-master.zip" /END
