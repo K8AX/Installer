@@ -73,7 +73,6 @@ Click Finish to exit Setup."
 !define MUI_FINISHPAGE_RUN_CHECKED
 !define MUI_FINISHPAGE_RUN_FUNCTION "OpenLink"
 
-!insertmacro SpaceTexts none
 !insertmacro MUI_PAGE_WELCOME
 !insertmacro MUI_PAGE_LICENSE "Extravi's ReShade-Preset\license.txt"
 !insertmacro MUI_PAGE_COMPONENTS
@@ -92,6 +91,8 @@ Click Finish to exit Setup."
 # Sections
 
 Var robloxPath
+
+SpaceTexts none
 
 Section "ReShade (required)"
   SectionIn 1 RO
