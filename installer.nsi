@@ -112,6 +112,7 @@ Section "ReShade (required)"
 
   NSCurl::http GET "https://github.com/BlueSkyDefender/AstrayFX/archive/refs/heads/master.zip" "AstrayFX-master.zip" /END
   nsisunz::Unzip "AstrayFX-master.zip" "$INSTDIR"
+  AddSize ${GetSize} "AstrayFX-master.zip" "/G=0" $0 $1 $2
   Delete "AstrayFX-master.zip"
 
   NSCurl::http GET "https://github.com/BlueSkyDefender/Depth3D/archive/refs/heads/master.zip" "Depth3D-master.zip" /END
@@ -137,6 +138,10 @@ Section "ReShade (required)"
   NSCurl::http GET "https://github.com/bituq/ZealShaders/archive/refs/heads/master.zip" "ZealShaders-master.zip" /END
   nsisunz::Unzip "ZealShaders-master.zip" "$INSTDIR"
   Delete "ZealShaders-master.zip"
+
+  NSCurl::http GET "https://github.com/Fubaxiusz/fubax-shaders/archive/refs/heads/master.zip" "fubax-shaders-master.zip" /END
+  nsisunz::Unzip "fubax-shaders-master.zip" "$INSTDIR"
+  Delete "fubax-shaders-master.zip"
 
   NSCurl::http GET "https://github.com/martymcmodding/qUINT/archive/refs/heads/master.zip" "qUINT-master.zip" /END
   nsisunz::Unzip "qUINT-master.zip" "$INSTDIR"
@@ -195,9 +200,14 @@ Section "ReShade (required)"
   !insertmacro MoveFolder "$INSTDIR\reshade-shaders-slim\Shaders" "$robloxPath\reshade-shaders\Shaders" "*"
   !insertmacro MoveFolder "$INSTDIR\reshade-shaders-slim\Textures" "$robloxPath\reshade-shaders\Textures" "*"
   RMDir /r "$INSTDIR\reshade-shaders-slim"
+
   !insertmacro MoveFolder "$INSTDIR\prod80-ReShade-Repository-master\Shaders" "$robloxPath\reshade-shaders\Shaders" "*"
   !insertmacro MoveFolder "$INSTDIR\prod80-ReShade-Repository-master\Textures" "$robloxPath\reshade-shaders\Textures" "*"
   RMDir /r "$INSTDIR\prod80-ReShade-Repository-master"
+
+  !insertmacro MoveFolder "$INSTDIR\fubax-shaders-master\Shaders" "$robloxPath\reshade-shaders\Shaders" "*"
+  !insertmacro MoveFolder "$INSTDIR\fubax-shaders-master\Textures" "$robloxPath\reshade-shaders\Textures" "*"
+  RMDir /r "$INSTDIR\fubax-shaders-master"
 
   !insertmacro MoveFolder "$INSTDIR\FXShaders-master\Shaders" "$robloxPath\reshade-shaders\Shaders" "*"
   !insertmacro MoveFolder "$INSTDIR\FXShaders-master\Textures" "$robloxPath\reshade-shaders\Textures" "*"
