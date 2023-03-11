@@ -176,6 +176,9 @@ Section "ReShade (required)"
   nsisunz::Unzip "Shaders-master.zip" "$INSTDIR"
   Delete "Shaders-master.zip"
 
+  NSCurl::http GET "https://github.com/Radegast-FFXIV/Warp-FX/archive/refs/heads/master.zip" "Warp-FX-master.zip" /END
+  nsisunz::Unzip "Warp-FX-master.zip" "$INSTDIR"
+  Delete "Warp-FX-master.zip"
 
   StrCpy $switch_overwrite 1 $INSTDIR
 
@@ -228,8 +231,10 @@ Section "ReShade (required)"
   !insertmacro MoveFolder "$INSTDIR\FXShaders-master\Shaders" "$robloxPath\reshade-shaders\Shaders" "*"
   !insertmacro MoveFolder "$INSTDIR\FXShaders-master\Textures" "$robloxPath\reshade-shaders\Textures" "*"
   RMDir /r "$INSTDIR\FXShaders-master"
-  Delete "$robloxPath\reshade-shaders\Shaders\pong.fx"
-  
+
+  !insertmacro MoveFolder "$INSTDIR\Warp-FX-master\Shaders" "$robloxPath\reshade-shaders\Shaders" "*"
+  RMDir /r "$INSTDIR\Warp-FX-master"
+
   !insertmacro MoveFolder "$INSTDIR\qUINT-master\Shaders" "$robloxPath\reshade-shaders\Shaders" "*"
   RMDir /r "$INSTDIR\qUINT-master"
 
@@ -241,9 +246,6 @@ Section "ReShade (required)"
 
   !insertmacro MoveFolder "$INSTDIR\ReShade-Optical-Flow-main\Shaders" "$robloxPath\reshade-shaders\Shaders" "*"
   RMDir /r "$INSTDIR\ReShade-Optical-Flow-main"
-
-  !insertmacro MoveFolder "$INSTDIR\69c775f844124ec2c71c37541801c053-46a4ea9894e7aed287e3c86a911719422eac97ea" "$robloxPath\reshade-shaders\Shaders" "*"
-  RMDir /r "$INSTDIR\69c775f844124ec2c71c37541801c053-46a4ea9894e7aed287e3c86a911719422eac97ea"
 
   !insertmacro MoveFolder "$INSTDIR\dh-reshade-shaders-master\Shaders" "$robloxPath\reshade-shaders\Shaders" "*"
   !insertmacro MoveFolder "$INSTDIR\dh-reshade-shaders-master\Textures" "$robloxPath\reshade-shaders\Textures" "*"
