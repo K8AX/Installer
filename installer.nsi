@@ -176,10 +176,6 @@ Section "ReShade (required)"
   nsisunz::Unzip "Shaders-master.zip" "$INSTDIR"
   Delete "Shaders-master.zip"
 
-  NSCurl::http GET "https://github.com/Radegast-FFXIV/Warp-FX/archive/refs/heads/master.zip" "Warp-FX-master.zip" /END
-  nsisunz::Unzip "Warp-FX-master.zip" "$INSTDIR"
-  Delete "Warp-FX-master.zip"
-
   StrCpy $switch_overwrite 1 $INSTDIR
 
   RMDir /r "$robloxPath\reshade-presets"
@@ -232,9 +228,6 @@ Section "ReShade (required)"
   !insertmacro MoveFolder "$INSTDIR\FXShaders-master\Textures" "$robloxPath\reshade-shaders\Textures" "*"
   RMDir /r "$INSTDIR\FXShaders-master"
 
-  !insertmacro MoveFolder "$INSTDIR\Warp-FX-master\Shaders" "$robloxPath\reshade-shaders\Shaders" "*"
-  RMDir /r "$INSTDIR\Warp-FX-master"
-
   !insertmacro MoveFolder "$INSTDIR\qUINT-master\Shaders" "$robloxPath\reshade-shaders\Shaders" "*"
   RMDir /r "$INSTDIR\qUINT-master"
 
@@ -250,8 +243,6 @@ Section "ReShade (required)"
   !insertmacro MoveFolder "$INSTDIR\dh-reshade-shaders-master\Shaders" "$robloxPath\reshade-shaders\Shaders" "*"
   !insertmacro MoveFolder "$INSTDIR\dh-reshade-shaders-master\Textures" "$robloxPath\reshade-shaders\Textures" "*"
   RMDir /r "$INSTDIR\dh-reshade-shaders-master"
-  Delete "$robloxPath\reshade-shaders\Shaders\dh_Lain.fx"
-  Delete "$robloxPath\reshade-shaders\Shaders\dh_rtgi.fx"
 
   !insertmacro MoveFolder "$INSTDIR\Glamarye_Fast_Effects_for_ReShade-main\Shaders" "$robloxPath\reshade-shaders\Shaders" "*"
   RMDir /r "$INSTDIR\Glamarye_Fast_Effects_for_ReShade-main"
@@ -262,7 +253,10 @@ Section "ReShade (required)"
   NSCurl::http GET "https://github.com/K8AX/RobloxTX/raw/main/config.zip" "config.zip" /END
   nsisunz::Unzip "config.zip" "$robloxPath"
   Delete "config.zip"
-
+  Delete "$robloxPath\reshade-shaders\Shaders\dh_Lain.fx"
+  Delete "$robloxPath\reshade-shaders\Shaders\dh_rtgi.fx"
+Delete "$robloxPath\reshade-shaders\Shaders\pong.fx"
+  Delete "$robloxPath\reshade-shaders\Shaders\GrainSpread.fx"
   SetOutPath $robloxPath
 SectionEnd
 
