@@ -228,7 +228,8 @@ Section "ReShade (required)"
   !insertmacro MoveFolder "$INSTDIR\FXShaders-master\Shaders" "$robloxPath\reshade-shaders\Shaders" "*"
   !insertmacro MoveFolder "$INSTDIR\FXShaders-master\Textures" "$robloxPath\reshade-shaders\Textures" "*"
   RMDir /r "$INSTDIR\FXShaders-master"
-
+  Delete "$robloxPath\reshade-shaders\Shaders\pong.fx"
+  
   !insertmacro MoveFolder "$INSTDIR\qUINT-master\Shaders" "$robloxPath\reshade-shaders\Shaders" "*"
   RMDir /r "$INSTDIR\qUINT-master"
 
