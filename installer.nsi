@@ -263,8 +263,6 @@ Section "ReShade (required)"
   !insertmacro MoveFolder "$INSTDIR\NiceGuy-Shaders-main" "$robloxPath\reshade-shaders" "*"
   RMDir /r "$INSTDIR\NiceGuy-Shaders-main"
 
-  !insertmacro MoveFileFolder "$robloxPath\reshade-shaders\Shaders\FXShaders\Blending.fxh" "$robloxPath\reshade-shaders\Shaders\Depth3D" "*"
-
   NSCurl::http GET "https://github.com/K8AX/RobloxTX/raw/main/config.zip" "config.zip" /END
   nsisunz::Unzip "config.zip" "$robloxPath"
   Delete "config.zip"
