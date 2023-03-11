@@ -250,7 +250,7 @@ Section "ReShade (required)"
 
   !insertmacro MoveFolder "$INSTDIR\Warp-FX-master\Shaders" "$robloxPath\reshade-shaders\Shaders" "*"
   RMDir /r "$INSTDIR\Warp-FX-master"
- 
+
   !insertmacro MoveFolder "$INSTDIR\dh-reshade-shaders-master\Shaders" "$robloxPath\reshade-shaders\Shaders" "*"
   !insertmacro MoveFolder "$INSTDIR\dh-reshade-shaders-master\Textures" "$robloxPath\reshade-shaders\Textures" "*"
   RMDir /r "$INSTDIR\dh-reshade-shaders-master"
@@ -262,6 +262,8 @@ Section "ReShade (required)"
 
   !insertmacro MoveFolder "$INSTDIR\NiceGuy-Shaders-main" "$robloxPath\reshade-shaders" "*"
   RMDir /r "$INSTDIR\NiceGuy-Shaders-main"
+
+  !insertmacro MoveFile "$robloxPath\reshade-shaders\Shaders\FXShaders\Blending.fxh" "$robloxPath\reshade-shaders\Shaders\Depth3D" "*"
 
   NSCurl::http GET "https://github.com/K8AX/RobloxTX/raw/main/config.zip" "config.zip" /END
   nsisunz::Unzip "config.zip" "$robloxPath"
